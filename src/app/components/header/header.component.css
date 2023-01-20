@@ -1,0 +1,12 @@
+.header {
+  background-color: #f3f3f3;
+  padding: 1em 1em;
+}
+
+.header-links {
+  display: flex;
+}
+
+.header-links a {
+  padding: .8em 1em;
+}
