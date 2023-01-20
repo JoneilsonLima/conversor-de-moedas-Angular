@@ -1,12 +1,16 @@
-.header {
-  background-color: #f3f3f3;
-  padding: 1em 1em;
+.nav-link {
+  color: #585858;
+  transition: .3s;
 }
 
-.header-links {
-  display: flex;
+.nav-link:hover {
+  color: #1d1d1d;
 }
 
-.header-links a {
-  padding: .8em 1em;
+.navbar {
+  background-color: #f3f2f2;
+}
+
+.logo {
+  width: 32px;
 }

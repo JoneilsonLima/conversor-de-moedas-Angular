@@ -1,6 +1,14 @@
 .container {
   border: 2px solid #d2d2d2;
   border-radius: 4px;
-  width: 90vw;
   margin: 0 auto;
+  padding: 1.2em;
+}
+
+.image-home {
+  max-width: 300px;
+}
+
+.image-home img {
+  width: 100%;
 }
