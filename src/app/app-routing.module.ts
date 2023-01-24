@@ -1,7 +1,12 @@
+import { ListagemMoedasComponent } from './components/paginas/listagem-moedas/listagem-moedas.component';
+import { HomeComponent } from './components/paginas/home/home.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-const routes: Routes = [];
+const routes: Routes = [
+  {path: '', component: HomeComponent},
+  {path: 'listagem-moedas', component: ListagemMoedasComponent}
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
