@@ -13,18 +13,25 @@ import { MoedasService } from 'src/app/services/moedas.service';
   styleUrls: ['./tabela-moedas.component.css']
 })
 export class TabelaMoedasComponent implements AfterViewInit {
+  error: any;
   displayedColumns: string[] = ['code', 'description'];
-  dataSource!: MatTableDataSource<IMoedas>;
+  dataSource: MatTableDataSource<IMoedas>;
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
   listaDeMoedas: IMoedas[] = [];
 
-  constructor(public moedas: MoedasService) {}
+  constructor(public moedas: MoedasService) {
+    this.dataSource = new MatTableDataSource(this.listaDeMoedas); // teste para corrigir: ERROR TypeError: Cannot set properties of undefined (setting 'sort')
+  }
 
   ngOnInit() {
     this.getSimbolos();
+    (error: any)=> {
+      this.error = error;
+      console.error("ERROR: ", error)
+    }
   }
 
   ngAfterViewInit() {

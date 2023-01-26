@@ -4,7 +4,7 @@
 }
 
 .nav-link:hover {
-  color: #1d1d1d;
+  color: #1a1a1a;
 }
 
 .navbar {
@@ -13,4 +13,9 @@
 
 .logo {
   width: 32px;
+}
+
+.active {
+  color: #1a1a1a;
+  font-weight: bold;
 }
