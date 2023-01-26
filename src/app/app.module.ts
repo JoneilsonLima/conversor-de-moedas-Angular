@@ -11,7 +11,10 @@ import { HomeComponent } from './components/paginas/home/home.component';
 import { ListagemMoedasComponent } from './components/paginas/listagem-moedas/listagem-moedas.component';
 import { MatTableModule } from '@angular/material/table';
 import { FooterComponent } from './components/footer/footer.component';
-
+import {MatPaginatorModule} from '@angular/material/paginator';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { TabelaMoedasComponent } from './components/paginas/listagem-moedas/tabela-moedas/tabela-moedas.component';
 
 @NgModule({
   declarations: [
@@ -20,13 +23,17 @@ import { FooterComponent } from './components/footer/footer.component';
     HomeComponent,
     ListagemMoedasComponent,
     FooterComponent,
+    TabelaMoedasComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    MatTableModule
+    MatTableModule,
+    MatFormFieldModule,
+    MatPaginatorModule,
+    MatInputModule
   ],
   providers: [HttpClient],
   bootstrap: [AppComponent]

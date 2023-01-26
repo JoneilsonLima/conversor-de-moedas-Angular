@@ -1,1 +1,7 @@
-export interface IMoeda {}
+
+/*
+export interface IMoeda {
+  name: string;
+  code: string;
+}
+*/
