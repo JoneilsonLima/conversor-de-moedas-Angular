@@ -1,26 +1,24 @@
-import { AfterViewInit, Component, ViewChild } from '@angular/core';
-import { MatPaginator } from '@angular/material/paginator';
-import { MatSort } from '@angular/material/sort';
-import { MatTableDataSource } from '@angular/material/table';
-import { IMoedas } from 'src/app/interface/IMoeda';
 import { ISimbolo } from 'src/app/interface/ISimbolo';
 import { MoedasService } from 'src/app/services/moedas.service';
-
+import { AfterViewInit, Component, ViewChild } from '@angular/core';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatTableDataSource } from '@angular/material/table';
+import { IMoedas } from 'src/app/interface/IMoeda';
+import { MatSort } from '@angular/material/sort';
 
 @Component({
   selector: 'app-tabela-moedas',
   templateUrl: './tabela-moedas.component.html',
-  styleUrls: ['./tabela-moedas.component.css']
+  styleUrls: ['./tabela-moedas.component.css'],
 })
 export class TabelaMoedasComponent implements AfterViewInit {
   error: any;
   displayedColumns: string[] = ['code', 'description'];
   dataSource: MatTableDataSource<IMoedas>;
+  listaDeMoedas: IMoedas[] = [];
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
-
-  listaDeMoedas: IMoedas[] = [];
 
   constructor(public moedas: MoedasService) {
     this.dataSource = new MatTableDataSource(this.listaDeMoedas); // teste para corrigir: ERROR TypeError: Cannot set properties of undefined (setting 'sort')
@@ -28,32 +26,32 @@ export class TabelaMoedasComponent implements AfterViewInit {
 
   ngOnInit() {
     this.getSimbolos();
-    (error: any)=> {
+    (error: any) => {
       this.error = error;
-      console.error("ERROR: ", error)
-    }
+      console.error('ERROR: ', error);
+    };
   }
 
   ngAfterViewInit() {
     this.dataSource.sort = this.sort;
   }
 
-  getSimbolos(){
-    this.moedas.getSymbols().subscribe((data:ISimbolo) => {
-      var retorno =  Object.keys(data.symbols).map(function(moeda: any){
-        let resultado = data.symbols[moeda]
+  getSimbolos() {
+    this.moedas.getSymbols().subscribe((data: ISimbolo) => {
+      var retorno = Object.keys(data.symbols).map(function (moeda: any) {
+        let resultado = data.symbols[moeda];
         return resultado;
-      })
+      });
       this.listaDeMoedas = retorno;
       this.dataSource = new MatTableDataSource(this.listaDeMoedas);
       this.dataSource.paginator = this.paginator;
-    })
+      this.dataSource.sort = this.sort;
+    });
   }
 
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
-
     if (this.dataSource.paginator) {
       this.dataSource.paginator.firstPage();
     }

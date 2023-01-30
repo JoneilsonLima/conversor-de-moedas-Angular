@@ -1,0 +1,42 @@
+.title {
+  height: 50px;
+  background-color: #eceaea;
+  padding-top: 8px;
+  margin-bottom: 30px;
+  border-radius: 4px;
+}
+
+main {
+  padding: 30px 0;
+}
+
+#botao {
+  background-color: rgb(76, 146, 19);
+  margin-top: 40px;
+  color: #FFFFFF;
+  transition: .3s;
+  border: 2px solid rgb(76, 146, 19);
+}
+
+#botao:hover {
+  background-color: #FFFFFF;
+  color: rgb(76, 146, 19);
+}
+
+
+.alert h3 {
+  color: rgb(233, 5, 5);
+  text-align: center;
+}
+
+.alert span {
+  font-weight: bold;
+  color: rgb(233, 5, 5);
+  font-size: 1.2em;
+}
+
+
+.selecione-moeda h3,
+.selecione-moeda span {
+  color: rgb(76, 146, 19);
+}

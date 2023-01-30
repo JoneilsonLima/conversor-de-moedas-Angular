@@ -15,6 +15,13 @@ import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { TabelaMoedasComponent } from './components/paginas/listagem-moedas/tabela-moedas/tabela-moedas.component';
+import { ConverterMoedasComponent } from './components/paginas/converter-moedas/converter-moedas.component';
+
+import { ReactiveFormsModule } from '@angular/forms';
+import {MatSelectModule} from '@angular/material/select';
+import {MatTooltipModule} from '@angular/material/tooltip';
+import {MatSortModule} from '@angular/material/sort';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -24,6 +31,7 @@ import { TabelaMoedasComponent } from './components/paginas/listagem-moedas/tabe
     ListagemMoedasComponent,
     FooterComponent,
     TabelaMoedasComponent,
+    ConverterMoedasComponent,
   ],
   imports: [
     BrowserModule,
@@ -33,7 +41,12 @@ import { TabelaMoedasComponent } from './components/paginas/listagem-moedas/tabe
     MatTableModule,
     MatFormFieldModule,
     MatPaginatorModule,
-    MatInputModule
+    MatInputModule,
+    ReactiveFormsModule,
+    MatSelectModule,
+    MatTooltipModule,
+    MatSortModule,
+    FormsModule
   ],
   providers: [HttpClient],
   bootstrap: [AppComponent]
