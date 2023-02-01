@@ -33,7 +33,7 @@ import { HistoricoComponent } from './components/paginas/historico/historico.com
     FooterComponent,
     TabelaMoedasComponent,
     ConverterMoedasComponent,
-    HistoricoComponent,
+    HistoricoComponent
   ],
   imports: [
     BrowserModule,

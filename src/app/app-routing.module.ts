@@ -1,4 +1,5 @@
 import { HistoricoComponent } from './components/paginas/historico/historico.component';
+
 import { ConverterMoedasComponent } from './components/paginas/converter-moedas/converter-moedas.component';
 import { ListagemMoedasComponent } from './components/paginas/listagem-moedas/listagem-moedas.component';
 import { HomeComponent } from './components/paginas/home/home.component';
@@ -10,6 +11,7 @@ const routes: Routes = [
   {path: 'listagem-moedas', component: ListagemMoedasComponent},
   {path: 'converter-moedas', component: ConverterMoedasComponent},
   {path: 'historico', component: HistoricoComponent},
+
 ];
 
 @NgModule({
