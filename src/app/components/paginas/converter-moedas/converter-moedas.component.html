@@ -9,7 +9,7 @@
       <h3><span>!</span> Selecione uma moeda de origem e uma moeda de destino.</h3>
     </div>
     <div *ngIf="valor <= 0">
-      <h3 #teste><span>!</span> Selecione um valor maior que 0.</h3>
+      <h3><span>!</span> Selecione um valor maior que 0.</h3>
     </div>
   </div>
 
@@ -56,14 +56,14 @@
       <div class="col-md-4">
         <mat-form-field class="w-100">
           <mat-label>Taxa de Conversão</mat-label>
-          <input matInput type="number" readonly="">
+          <input matInput type="number" [(ngModel)]="taxa" readonly="">
         </mat-form-field>
       </div>
     </div>
 
     <div class="row justify-content-center">
       <div class="col-md-4">
-        <button mat-raised-button id="botao" class="w-100 btn btn-lg btn-block" (click)="converter()">Calcular Conversão</button>
+        <button mat-raised-button id="botao" class="w-100 btn btn-lg btn-block" (click)="converterMoeda()">Calcular Conversão</button>
       </div>
     </div>
   </div>

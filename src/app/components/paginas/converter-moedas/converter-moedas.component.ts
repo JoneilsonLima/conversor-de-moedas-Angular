@@ -9,11 +9,12 @@ import { MoedasService } from 'src/app/services/moedas.service';
   styleUrls: ['./converter-moedas.component.css'],
 })
 export class ConverterMoedasComponent implements OnInit {
-  moedas: any[] = [];
+  moedas!: any[];
   form!: FormGroup;
   moedaOrigem!: string;
   moedaDestino!: string;
   valor!: number;
+  taxa!: any;
   resultado: any;
 
   constructor(private moeda: MoedasService) {
@@ -34,12 +35,13 @@ export class ConverterMoedasComponent implements OnInit {
     });
   }
 
-  converter() {
+  converterMoeda() {
     if(this.valor >= 0) {
       this.moeda
       .converterMoeda(this.moedaOrigem, this.moedaDestino, this.valor)
       .subscribe((data: any) => {
         this.resultado = data['result'];
+        this.taxa = Object.values(data['info'])
       });
     }
   }
