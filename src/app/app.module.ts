@@ -22,6 +22,7 @@ import {MatSelectModule} from '@angular/material/select';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatSortModule} from '@angular/material/sort';
 import { FormsModule } from '@angular/forms';
+import { HistoricoComponent } from './components/paginas/historico/historico.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { FormsModule } from '@angular/forms';
     FooterComponent,
     TabelaMoedasComponent,
     ConverterMoedasComponent,
+    HistoricoComponent,
   ],
   imports: [
     BrowserModule,
