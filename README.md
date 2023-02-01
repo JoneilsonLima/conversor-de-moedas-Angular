@@ -1,6 +1,6 @@
 # Conversor de Moedas
 
-Conversor de moedas desenvolvido com Angular.
+Conversor de moedas que consome API desenvolvido com Angular.
 <br><br>
 
 ## -Página Home-
