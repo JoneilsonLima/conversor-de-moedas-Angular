@@ -6,10 +6,10 @@
 
   <div class="alert">
     <div class="selecione-moeda" *ngIf="!moedaOrigem || !moedaDestino">
-      <h3><span>!</span> Selecione uma moeda de origem e uma moeda de destino.</h3>
+      <h3><i class="bi bi-exclamation-triangle-fill"></i> Selecione uma moeda de origem e uma moeda de destino.</h3>
     </div>
-    <div *ngIf="valor <= 0">
-      <h3><span>!</span> Selecione um valor maior que 0.</h3>
+    <div class="aviso" *ngIf="valor <= 0">
+      <h3><i class="bi bi-exclamation-triangle-fill"></i> Selecione um valor maior que 0.</h3>
     </div>
   </div>
 

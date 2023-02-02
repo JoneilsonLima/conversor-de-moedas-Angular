@@ -23,6 +23,15 @@ import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatSortModule} from '@angular/material/sort';
 import { FormsModule } from '@angular/forms';
 import { HistoricoComponent } from './components/paginas/historico/historico.component';
+import {MatDialogModule} from '@angular/material/dialog';
+import {MatIconModule} from '@angular/material/icon';
+import { SnackBarComponent } from './components/paginas/historico/snack-bar/snack-bar.component';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+
+
+
+
+
 
 @NgModule({
   declarations: [
@@ -33,7 +42,8 @@ import { HistoricoComponent } from './components/paginas/historico/historico.com
     FooterComponent,
     TabelaMoedasComponent,
     ConverterMoedasComponent,
-    HistoricoComponent
+    HistoricoComponent,
+    SnackBarComponent,
   ],
   imports: [
     BrowserModule,
@@ -48,7 +58,10 @@ import { HistoricoComponent } from './components/paginas/historico/historico.com
     MatSelectModule,
     MatTooltipModule,
     MatSortModule,
-    FormsModule
+    FormsModule,
+    MatDialogModule,
+    MatIconModule,
+    MatSnackBarModule
   ],
   providers: [HttpClient],
   bootstrap: [AppComponent]

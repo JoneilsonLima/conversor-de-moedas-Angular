@@ -1,7 +1,10 @@
+@import "~bootstrap-icons/font/bootstrap-icons.css";
+
 html,
 body {
   height: 100%;
 }
+
 * {
   box-sizing: border-box;
   padding: 0;
@@ -20,4 +23,12 @@ main {
 
 li {
   list-style: none;
+}
+
+.title {
+  height: 50px;
+  background-color: #eceaea;
+  padding-top: 8px;
+  margin-bottom: 30px;
+  border-radius: 4px;
 }

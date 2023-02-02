@@ -1,0 +1,12 @@
+<div class="card">
+
+  <div class="card-body">
+    <h1 class="card-title" mat-dialog-title>Excluir Histórico</h1>
+    <h3 mat-dialog-content>Tem certeza que deseja excluir o histórico permanentemente?</h3>
+    <div id="botoes-modal" class="d-flex justify-content-around mt-3" mat-dialog-actions>
+      <button id="btn" type="button" class="btn btn-success" mat-button (click)="cancelar()">Cancelar</button>
+      <button id="btn" type="button" class="btn btn-danger" mat-button (click)="dialogRef.close(true)">Excluir</button>
+    </div>
+  </div>
+
+</div>

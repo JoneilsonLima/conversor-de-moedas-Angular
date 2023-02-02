@@ -1,0 +1,42 @@
+table {
+  box-shadow: 0 0 8px rgba(0, 0, 0, .3);
+}
+
+main {
+  padding: 60px 0;
+}
+
+button {
+  background-color: transparent;
+  border: none;
+}
+
+i {
+  transition: .3s;
+}
+
+i:hover {
+  color: red;
+}
+
+#maior-valor {
+  color: rgb(10, 185, 39);
+  margin-right: 5px;
+}
+
+.historico-vazio {
+  padding: 100px 0;
+}
+
+#btn {
+  background-color: rgb(76, 146, 19);
+  margin-top: 40px;
+  color: #FFFFFF;
+  transition: .3s;
+  border: 2px solid rgb(76, 146, 19);
+}
+
+#btn:hover {
+  background-color: #FFFFFF;
+  color: rgb(76, 146, 19);
+}

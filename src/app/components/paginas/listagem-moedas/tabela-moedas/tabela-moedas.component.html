@@ -1,4 +1,4 @@
-<main class="container">
+<main class="container" *ngIf="dataSource.data.length > 0">
   <mat-form-field>
     <mat-label>Filter</mat-label>
     <input matInput (keyup)="applyFilter($event)" placeholder="Ex. USD " #input>
@@ -26,3 +26,8 @@
       aria-label="Select page"></mat-paginator>
   </div>
 </main>
+
+<div class="d-flex flex-column align-items-center justify-content-center"
+  *ngIf="dataSource.data.length == 0">
+  <p class="fs-5">Não há moedas.</p>
+</div>
