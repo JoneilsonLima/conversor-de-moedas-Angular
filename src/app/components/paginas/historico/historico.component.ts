@@ -9,15 +9,13 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { DialogOverviewExampleDialog } from './modal-dialog/DialogOverviewExampleDialog';
 import { SnackBarComponent } from './snack-bar/snack-bar.component';
 
-
 @Component({
   selector: 'app-historico',
   templateUrl: './historico.component.html',
   styleUrls: ['./historico.component.css'],
-  providers: [MatDialogModule, MatSnackBar]
+  providers: [MatDialogModule, MatSnackBar],
 })
-export class HistoricoComponent implements OnInit{
-
+export class HistoricoComponent implements OnInit {
   local: any = localStorage.getItem('conversions');
 
   constructor(public dialog: MatDialog, private _snackBar: MatSnackBar) {}
@@ -51,12 +49,17 @@ export class HistoricoComponent implements OnInit{
       if (result) {
         const index = this.dataSource.data.indexOf(element);
         this.dataSource.data.splice(index, 1);
-        localStorage.setItem('conversions', JSON.stringify(this.dataSource.data));
+        localStorage.setItem(
+          'conversions',
+          JSON.stringify(this.dataSource.data)
+        );
         this.dataSource.data = JSON.parse(this.local) || [];
-        this.openSnackBar()
+        this.openSnackBar();
+        /*
         setTimeout(() => {
           window.location.reload();
       }, 2000);
+        */
       }
     });
   }
