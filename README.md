@@ -1,7 +1,11 @@
-# Conversor de Moedas
+# Veja o projeto <a href="https://heartfelt-croquembouche-726309.netlify.app" target="_blank">clicando aqui!</a>
+
+## Conversor de Moedas
 
 Conversor de moedas que consome API desenvolvido com Angular.
-<br><br>
+
+-Veja a API utilizada <a href="https://exchangerate.host/#/" target="_blank">clicando aqui!</a>
+<br>
 
 ## -Página Home-
 ![home](https://user-images.githubusercontent.com/73480168/214926176-e9b55305-23e4-4aa6-803a-9ab655f914ab.png)
@@ -16,3 +20,11 @@ Conversor de moedas que consome API desenvolvido com Angular.
   ![historico-vazio](https://user-images.githubusercontent.com/73480168/216466618-c2be7c26-145a-46f6-9e19-dabd291eba6e.png)
   ![historico](https://user-images.githubusercontent.com/73480168/216466628-adfb70ba-3101-4f75-be9d-5876fca37aab.png)
 <br>
+
+# Tecnologias:🧑‍💻
+
+-Angular
+
+-TypeScript
+
+-Bootstrap
