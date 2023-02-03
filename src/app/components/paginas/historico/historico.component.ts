@@ -37,22 +37,22 @@ export class HistoricoComponent implements OnInit{
   @ViewChild(MatSort) sort!: MatSort;
 
   ngOnInit(): void {
-    this.dataSource.data = JSON.parse(this.local);
+    this.dataSource.data = JSON.parse(this.local) || [];
   }
 
   ngAfterViewInit() {
     this.dataSource.sort = this.sort;
   }
 
-  deletarHistorico(element: any): void {
+  deletarHistorico(element: IHistorico): void {
     const dialogRef = this.dialog.open(DialogOverviewExampleDialog);
 
-    dialogRef.afterClosed().subscribe((result) => {
+    dialogRef.afterClosed().subscribe((result: IHistorico) => {
       if (result) {
         const index = this.dataSource.data.indexOf(element);
         this.dataSource.data.splice(index, 1);
         localStorage.setItem('conversions', JSON.stringify(this.dataSource.data));
-        this.dataSource.data = JSON.parse(this.local);
+        this.dataSource.data = JSON.parse(this.local) || [];
         this.openSnackBar()
         setTimeout(() => {
           window.location.reload();

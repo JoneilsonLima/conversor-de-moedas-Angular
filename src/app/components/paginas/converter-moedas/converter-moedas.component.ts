@@ -1,3 +1,4 @@
+import { IMoedas } from './../../../interface/IMoeda';
 import { ISimbolo } from './../../../interface/ISimbolo';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
@@ -9,7 +10,7 @@ import { MoedasService } from 'src/app/services/moedas.service';
   styleUrls: ['./converter-moedas.component.css'],
 })
 export class ConverterMoedasComponent implements OnInit {
-  moedas!: any[];
+  moedas!: IMoedas[];
   form!: FormGroup;
   moedaOrigem!: string;
   moedaDestino!: string;
@@ -32,7 +33,7 @@ export class ConverterMoedasComponent implements OnInit {
     });
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.carregarLocalStorage();
     this.moeda.getSymbols().subscribe((data: ISimbolo) => {
       let resultado = Object.keys(data.symbols).map(function (moeda: any) {
@@ -65,7 +66,7 @@ export class ConverterMoedasComponent implements OnInit {
   }
 
   carregarLocalStorage() {
-    this.conversions = JSON.parse(this.local);
+    this.conversions = JSON.parse(this.local) || [];
   }
 
   salvarLocalStorage() {
@@ -96,7 +97,7 @@ export class ConverterMoedasComponent implements OnInit {
       dolarValue: this.maiorValorEmDolar,
     };
 
-    this.conversions = JSON.parse(this.local);
+    this.conversions = JSON.parse(this.local) || [];
     this.conversions.push(conversion);
     localStorage.setItem('conversions', JSON.stringify(this.conversions));
     this.carregarLocalStorage();
