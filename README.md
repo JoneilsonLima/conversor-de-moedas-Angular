@@ -16,7 +16,3 @@ Conversor de moedas que consome API desenvolvido com Angular.
   ![historico-vazio](https://user-images.githubusercontent.com/73480168/216466618-c2be7c26-145a-46f6-9e19-dabd291eba6e.png)
   ![historico](https://user-images.githubusercontent.com/73480168/216466628-adfb70ba-3101-4f75-be9d-5876fca37aab.png)
 <br>
-## Versão Mobile 📱
-![mobile](https://user-images.githubusercontent.com/73480168/214933452-2d6ae633-ea67-4ccb-bf66-afdf8f0c838a.png)
-![mobile (2)](https://user-images.githubusercontent.com/73480168/214933465-78824660-1032-4e8b-a741-989d9908d90c.png)
-![mobile (1)](https://user-images.githubusercontent.com/73480168/214933476-a7d9349f-1bca-45a4-9ffc-3dffe387721b.png)
