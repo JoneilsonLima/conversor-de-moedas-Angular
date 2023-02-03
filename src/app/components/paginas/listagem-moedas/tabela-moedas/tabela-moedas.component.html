@@ -1,4 +1,4 @@
-<main class="container" *ngIf="dataSource.data.length > 0">
+<main class="container">
   <mat-form-field>
     <mat-label>Filter</mat-label>
     <input matInput (keyup)="applyFilter($event)" placeholder="Ex. USD " #input>
@@ -6,7 +6,7 @@
 
   <div class="mat-elevation-z8">
 
-    <table mat-table [dataSource]="dataSource" matSort>
+    <table *ngIf="dataSource.data.length > 0" mat-table [dataSource]="dataSource" matSort>
 
       <ng-container matColumnDef="code">
         <th mat-header-cell *matHeaderCellDef mat-sort-header>Código</th>

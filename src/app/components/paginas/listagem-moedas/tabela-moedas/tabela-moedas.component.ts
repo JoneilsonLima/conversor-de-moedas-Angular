@@ -21,7 +21,7 @@ export class TabelaMoedasComponent implements AfterViewInit {
   @ViewChild(MatSort) sort!: MatSort;
 
   constructor(public moedas: MoedasService) {
-    this.dataSource = new MatTableDataSource(this.listaDeMoedas); // teste para corrigir: ERROR TypeError: Cannot set properties of undefined (setting 'sort')
+    this.dataSource = new MatTableDataSource(this.listaDeMoedas);
   }
 
   ngOnInit() {
