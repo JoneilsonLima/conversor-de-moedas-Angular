@@ -71,20 +71,20 @@ export class ConverterMoedasComponent implements OnInit {
 
   salvarLocalStorage() {
     let date = new Date();
-    let optionsDate: Intl.DateTimeFormatOptions = {
+    let converterData: Intl.DateTimeFormatOptions = {
       year: 'numeric',
       month: '2-digit',
       day: '2-digit',
     };
 
-    let optionsTime: Intl.DateTimeFormatOptions = {
+    let converterHora: Intl.DateTimeFormatOptions = {
       hour: '2-digit',
       minute: '2-digit',
       second: '2-digit',
     };
 
-    this.date = date.toLocaleDateString('pt-BR', optionsDate);
-    this.time = date.toLocaleTimeString('pt-BR', optionsTime);
+    this.date = date.toLocaleDateString('pt-BR', converterData);
+    this.time = date.toLocaleTimeString('pt-BR', converterHora);
 
     let conversion = {
       date: this.date,

@@ -27,5 +27,6 @@ fdescribe('MoedasService', () => {
     service.getSymbols()
     expect(spy).toHaveBeenCalledWith('https://api.exchangerate.host/symbols')
   })
+
 });
 

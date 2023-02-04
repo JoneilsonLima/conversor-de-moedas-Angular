@@ -1,5 +1,6 @@
 @import "~bootstrap-icons/font/bootstrap-icons.css";
 
+/* reset */
 html,
 body {
   height: 100%;
@@ -25,6 +26,7 @@ li {
   list-style: none;
 }
 
+/* Modelos */
 .title {
   height: 50px;
   background-color: #eceaea;
