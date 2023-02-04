@@ -1,3 +1,4 @@
+import { IHistorico } from './../../../interface/IHistorico';
 import { HistoricoService } from './../../../services/historico.service';
 import { IMoedas } from './../../../interface/IMoeda';
 import { ISimbolo } from './../../../interface/ISimbolo';
@@ -19,10 +20,10 @@ export class ConverterMoedasComponent implements OnInit {
   taxa!: any;
   resultado: any;
 
-  conversions: any[] = [];
+  conversions: IHistorico[] = [];
   date!: string;
   time!: string;
-  maiorValorEmDolar!: number;
+  maiorValorEmDolar!: boolean;
 
   local: any = localStorage.getItem('conversions');
 
@@ -83,7 +84,7 @@ export class ConverterMoedasComponent implements OnInit {
     this.date = date.toLocaleDateString('pt-BR', converterData);
     this.time = date.toLocaleTimeString('pt-BR', converterHora);
 
-    let conversion = {
+    let conversion: IHistorico = {
       date: this.date,
       time: this.time,
       inputValue: this.valor,

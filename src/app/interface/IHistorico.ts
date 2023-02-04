@@ -1,10 +1,10 @@
 export interface IHistorico {
-  data: string,
-  hora: string,
-  valor: number,
-  moedaOrigem: string,
-  resultado: number,
-  moedaDestino: string,
+  date: string,
+  time: string,
+  inputValue: number,
+  inputCurrency: string,
+  outputValue: number,
+  outputCurrency: string,
   rate: number[],
-  dolarValorMaior: boolean
+  dolarValue: boolean
 }
