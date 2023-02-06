@@ -46,8 +46,8 @@
 
     <ng-container matColumnDef="delete">
       <th mat-header-cell *matHeaderCellDef>Ação</th>
-      <td mat-cell *matCellDef="let element">
-        <button mat-button (click)="deletarHistorico(element)"><i class="bi bi-trash3-fill"></i></button>
+      <td mat-cell *matCellDef="let element; let i = index">
+        <button mat-button (click)="deletarHistorico(i)"><i class="bi bi-trash3-fill"></i></button>
       </td>
     </ng-container>
 

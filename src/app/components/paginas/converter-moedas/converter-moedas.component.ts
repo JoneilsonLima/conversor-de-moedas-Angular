@@ -25,7 +25,7 @@ export class ConverterMoedasComponent implements OnInit {
   time!: string;
   maiorValorEmDolar!: boolean;
 
-  local: any = localStorage.getItem('conversions');
+  local: any = localStorage.getItem('historico');
 
   constructor(private moeda: MoedasService, private historicoService: HistoricoService) {
     this.form = new FormGroup({
@@ -46,7 +46,7 @@ export class ConverterMoedasComponent implements OnInit {
     });
   }
 
-  converterMoeda() {
+  converterMoeda(): void {
     if (this.valor >= 0) {
       this.moeda
         .converterMoeda(this.moedaOrigem, this.moedaDestino, this.valor)
@@ -58,7 +58,7 @@ export class ConverterMoedasComponent implements OnInit {
     }
   }
 
-  valorSuperiorDolar() {
+  valorSuperiorDolar(): void {
     this.moeda
       .converterMoeda(this.moedaDestino, 'USD', this.resultado)
       .subscribe((data: any) => {
@@ -67,22 +67,11 @@ export class ConverterMoedasComponent implements OnInit {
       });
   }
 
-  salvarLocalStorage() {
+  salvarLocalStorage(): void {
     let date = new Date();
-    let converterData: Intl.DateTimeFormatOptions = {
-      year: 'numeric',
-      month: '2-digit',
-      day: '2-digit',
-    };
 
-    let converterHora: Intl.DateTimeFormatOptions = {
-      hour: '2-digit',
-      minute: '2-digit',
-      second: '2-digit',
-    };
-
-    this.date = date.toLocaleDateString('pt-BR', converterData);
-    this.time = date.toLocaleTimeString('pt-BR', converterHora);
+    this.date = date.toLocaleDateString();
+    this.time = date.toLocaleTimeString();
 
     let conversion: IHistorico = {
       date: this.date,
@@ -97,7 +86,7 @@ export class ConverterMoedasComponent implements OnInit {
 
     this.conversions = JSON.parse(this.local) || [];
     this.conversions.push(conversion);
-    localStorage.setItem('conversions', JSON.stringify(this.conversions));
+    localStorage.setItem('historico', JSON.stringify(this.conversions));
     this.historicoService.carregarLocalStorage()
   }
 }

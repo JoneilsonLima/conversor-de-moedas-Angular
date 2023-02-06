@@ -22,11 +22,16 @@ fdescribe('MoedasService', () => {
     expect(service).toBeTruthy();
   });
 
-  it('Must call a GET with the correct endpoint', () => {
+  it(`#${MoedasService.prototype.getSymbols.name} Must call a GET with the correct endpoint`, () => {
     const spy = spyOn(http, 'get').and.callThrough()
     service.getSymbols()
     expect(spy).toHaveBeenCalledWith('https://api.exchangerate.host/symbols')
   })
 
+  it(`#${MoedasService.prototype.converterMoeda.name} should return conversion url from api`, () => {
+    const spy = spyOn(http, 'get').and.callThrough()
+    service.converterMoeda('USD', 'BRL', 10)
+    expect(spy).toHaveBeenCalledWith(`https://api.exchangerate.host/convert?from=USD&to=BRL&amount=10`)
+  })
 });
 

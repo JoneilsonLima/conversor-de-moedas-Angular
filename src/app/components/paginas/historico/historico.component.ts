@@ -1,3 +1,4 @@
+import { HistoricoService } from './../../../services/historico.service';
 import { IHistorico } from './../../../interface/IHistorico';
 import { ViewChild } from '@angular/core';
 import { Component, OnInit } from '@angular/core';
@@ -16,9 +17,10 @@ import { SnackBarComponent } from './snack-bar/snack-bar.component';
   providers: [MatDialogModule, MatSnackBar],
 })
 export class HistoricoComponent implements OnInit {
-  local: any = localStorage.getItem('conversions');
 
-  constructor(public dialog: MatDialog, private _snackBar: MatSnackBar) {}
+  local: any = localStorage.getItem('historico');
+
+  constructor(public dialog: MatDialog, private _snackBar: MatSnackBar, private historico: HistoricoService) {}
 
   displayedColumns: string[] = [
     'date',
@@ -42,16 +44,14 @@ export class HistoricoComponent implements OnInit {
     this.dataSource.sort = this.sort;
   }
 
-  deletarHistorico(element: IHistorico): void {
+  deletarHistorico(index: number): void {
+
     const dialogRef = this.dialog.open(DialogOverviewExampleDialog);
 
     dialogRef.afterClosed().subscribe((result: IHistorico) => {
       if (result) {
-        const index = this.dataSource.data.indexOf(element);
-        this.dataSource.data.splice(index, 1);
-        localStorage.setItem(
-          'conversions',
-          JSON.stringify(this.dataSource.data)
+        this.dataSource.data.splice(index, 1)
+        localStorage.setItem('historico', JSON.stringify(this.dataSource.data)
         );
         this.dataSource.data = JSON.parse(this.local) || [];
         this.openSnackBar();
@@ -68,7 +68,7 @@ export class HistoricoComponent implements OnInit {
     this._snackBar.openFromComponent(SnackBarComponent, {
       horizontalPosition: 'right',
       verticalPosition: 'top',
-      duration: 2000,
+      duration: 2500,
     });
   }
 }

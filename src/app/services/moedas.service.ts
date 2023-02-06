@@ -17,7 +17,7 @@ export class MoedasService {
   }
 
   converterMoeda(moedaOrigem: string, moedaDestino: string, valor: number) {
-    const url = `${environment.API_URL}/convert?from=${moedaOrigem}&to=${moedaDestino}&amount=${valor}`;
+    const url: string = `${environment.API_URL}/convert?from=${moedaOrigem}&to=${moedaDestino}&amount=${valor}`;
     return this.http.get(url);
   }
 }
