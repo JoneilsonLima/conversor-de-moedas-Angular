@@ -4,7 +4,7 @@
 
 Conversor de moedas que consome API desenvolvido com Angular.
 
--Veja a API utilizada <a href="https://exchangerate.host/#/" target="_blank">clicando aqui!</a>
+-Veja a API utilizada no projeto <a href="https://exchangerate.host/#/" target="_blank">clicando aqui!</a>
 <br>
 
 ## -Página Home-
