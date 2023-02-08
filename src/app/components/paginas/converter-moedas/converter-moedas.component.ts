@@ -27,7 +27,7 @@ export class ConverterMoedasComponent implements OnInit {
 
   local: any = localStorage.getItem('historico');
 
-  constructor(private moeda: MoedasService, private historicoService: HistoricoService) {
+  constructor(private moeda: MoedasService) {
     this.form = new FormGroup({
       moedaOrigem: new FormControl(''),
       moedaDestino: new FormControl(''),
@@ -36,7 +36,6 @@ export class ConverterMoedasComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.historicoService.carregarLocalStorage()
     this.moeda.getSymbols().subscribe((data: ISimbolo) => {
       let resultado = Object.keys(data.symbols).map(function (moeda: any) {
         let resul = data.symbols[moeda];
@@ -54,6 +53,7 @@ export class ConverterMoedasComponent implements OnInit {
           this.resultado = data['result'];
           this.taxa = Object.values(data['info']);
           this.valorSuperiorDolar();
+          this.salvarLocalStorage()
         });
     }
   }
@@ -87,6 +87,5 @@ export class ConverterMoedasComponent implements OnInit {
     this.conversions = JSON.parse(this.local) || [];
     this.conversions.push(conversion);
     localStorage.setItem('historico', JSON.stringify(this.conversions));
-    this.historicoService.carregarLocalStorage()
   }
 }

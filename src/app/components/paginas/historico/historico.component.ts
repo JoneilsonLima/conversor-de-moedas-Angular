@@ -1,6 +1,6 @@
 import { HistoricoService } from './../../../services/historico.service';
 import { IHistorico } from './../../../interface/IHistorico';
-import { ViewChild } from '@angular/core';
+import { ViewChild, AfterViewInit } from '@angular/core';
 import { Component, OnInit } from '@angular/core';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
@@ -16,11 +16,11 @@ import { SnackBarComponent } from './snack-bar/snack-bar.component';
   styleUrls: ['./historico.component.css'],
   providers: [MatDialogModule, MatSnackBar],
 })
-export class HistoricoComponent implements OnInit {
+export class HistoricoComponent implements OnInit, AfterViewInit {
 
   local: any = localStorage.getItem('historico');
 
-  constructor(public dialog: MatDialog, private _snackBar: MatSnackBar, private historico: HistoricoService) {}
+  constructor(public dialog: MatDialog, private _snackBar: MatSnackBar) {}
 
   displayedColumns: string[] = [
     'date',
@@ -64,7 +64,7 @@ export class HistoricoComponent implements OnInit {
     });
   }
 
-  openSnackBar() {
+  openSnackBar(): void {
     this._snackBar.openFromComponent(SnackBarComponent, {
       horizontalPosition: 'right',
       verticalPosition: 'top',

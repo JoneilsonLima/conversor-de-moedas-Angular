@@ -7,10 +7,4 @@ import { Injectable } from '@angular/core';
 export class HistoricoService {
 
   constructor() { }
-
-  carregarLocalStorage(): IHistorico[] {
-    let local: any = localStorage.getItem('historico');
-    let conversions: IHistorico[] = JSON.parse(local) || [];
-    return conversions;
-  }
 }

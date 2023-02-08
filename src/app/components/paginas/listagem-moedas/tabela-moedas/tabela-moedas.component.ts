@@ -24,7 +24,7 @@ export class TabelaMoedasComponent implements AfterViewInit {
     this.dataSource = new MatTableDataSource(this.listaDeMoedas);
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.getSimbolos();
     (error: any) => {
       this.error = error;
@@ -32,11 +32,11 @@ export class TabelaMoedasComponent implements AfterViewInit {
     };
   }
 
-  ngAfterViewInit() {
+  ngAfterViewInit(): void {
     this.dataSource.sort = this.sort;
   }
 
-  getSimbolos() {
+  getSimbolos(): void {
     this.moedas.getSymbols().subscribe((data: ISimbolo) => {
       var retorno = Object.keys(data.symbols).map(function (moeda: any) {
         let resultado = data.symbols[moeda];
@@ -49,7 +49,7 @@ export class TabelaMoedasComponent implements AfterViewInit {
     });
   }
 
-  applyFilter(event: Event) {
+  applyFilter(event: Event): void {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
     if (this.dataSource.paginator) {

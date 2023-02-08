@@ -6,7 +6,7 @@
 
   <div class="mat-elevation-z8">
 
-    <table *ngIf="dataSource.data.length > 0" mat-table [dataSource]="dataSource" matSort>
+    <table mat-table [dataSource]="dataSource" matSort>
 
       <ng-container matColumnDef="code">
         <th mat-header-cell *matHeaderCellDef mat-sort-header>Código</th>
@@ -26,8 +26,3 @@
       aria-label="Select page"></mat-paginator>
   </div>
 </main>
-
-<div class="d-flex flex-column align-items-center justify-content-center"
-  *ngIf="dataSource.data.length == 0">
-  <p class="fs-5">Não há moedas.</p>
-</div>

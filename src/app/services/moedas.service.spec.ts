@@ -4,7 +4,7 @@ import { TestBed } from '@angular/core/testing';
 
 import { MoedasService } from './moedas.service';
 
-fdescribe('MoedasService', () => {
+describe('MoedasService', () => {
   let service: MoedasService;
   let http: HttpClient;
 
