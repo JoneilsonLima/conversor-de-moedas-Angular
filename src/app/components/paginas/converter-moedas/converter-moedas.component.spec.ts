@@ -12,7 +12,7 @@ import { async } from 'rxjs';
 import { By } from '@angular/platform-browser';
 
 
-fdescribe('ConverterMoedasComponent', () => {
+describe('ConverterMoedasComponent', () => {
   let component: ConverterMoedasComponent;
   let fixture: ComponentFixture<ConverterMoedasComponent>;
   let el: HTMLElement;
@@ -43,7 +43,7 @@ fdescribe('ConverterMoedasComponent', () => {
   });
 
   it('must load two coin selectors', () => {
-    let selects = (fixture.nativeElement.querySelectorAll('mat-form-field mat-select'))
+    let selects = fixture.nativeElement.querySelectorAll('mat-form-field mat-select')
     expect(selects.length).toBe(2);
   });
 

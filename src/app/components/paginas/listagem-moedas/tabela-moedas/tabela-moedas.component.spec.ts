@@ -11,19 +11,32 @@ import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
+import { of } from 'rxjs';
 
-
-
-
-describe('TabelaMoedasComponent', () => {
+fdescribe('TabelaMoedasComponent', () => {
   let component: TabelaMoedasComponent;
   let fixture: ComponentFixture<TabelaMoedasComponent>;
   let service: MoedasService;
-  let moeda: MoedasService
+  let moeda: MoedasService;
+  let symbolMock: any;
+  let symbols = {
+    "AED": { "description": 'United Arab Emirates Dirham', code: 'AED' },
+    "AFN": { "description": 'Afghan Afghani', "code": 'AFN' },
+    "ALL": { "description": "Albanian Lek", "code": "ALL" },
+    "AMD": { "description": "Armenian Dram", "code": "AMD" },
+  };
+  let mockApiService = {
+    motd: { msg: 'msg', url: 'url' },
+    success: true,
+    symbols: Object.values(symbols),
+  };
 
   beforeEach(async () => {
+    symbolMock = jasmine.createSpyObj(['getSymbols']);
+    let list$ = jasmine.createSpy().and.returnValue(mockApiService);
+    symbolMock.getSymbols.and.returnValue(of(list$));
     await TestBed.configureTestingModule({
-      declarations: [ TabelaMoedasComponent ],
+      declarations: [TabelaMoedasComponent],
       imports: [
         HttpClientTestingModule,
         BrowserAnimationsModule,
@@ -33,15 +46,19 @@ describe('TabelaMoedasComponent', () => {
         MatSortModule,
         MatFormFieldModule,
         MatTableModule,
-        MatInputModule
+        MatInputModule,
       ],
-      providers:[TabelaMoedasComponent, HttpClient, HttpHandler]
-    })
-    .compileComponents();
+      providers: [
+        TabelaMoedasComponent,
+        HttpClient,
+        HttpHandler,
+        { provide: MoedasService, useValue: symbolMock },
+      ],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(TabelaMoedasComponent);
     component = fixture.componentInstance;
-    service = TestBed.inject(MoedasService)
+    service = TestBed.inject(MoedasService);
     fixture.detectChanges();
   });
 
@@ -51,29 +68,40 @@ describe('TabelaMoedasComponent', () => {
 
   it('Must initialize the dataSource', () => {
     expect(component.dataSource).toBeTruthy();
-  })
+  });
 
   it('Must display a table', () => {
     let table: DebugElement = fixture.debugElement.query(By.css('table'));
     expect(table).toBeTruthy();
-  })
+  });
 
   it('Must get input value from input', () => {
     let input: HTMLInputElement = fixture.nativeElement.querySelector('input');
     expect(input.value).toBe('');
     input.value = 'BRL';
     expect(input.value).toBe('BRL');
-  })
+  });
+
+  it('must filter the table', () => {
+    let input: HTMLInputElement = fixture.nativeElement.querySelector('input');
+    input.value = "AED";
+    input.dispatchEvent(new KeyboardEvent('keyup'));
+    expect(component.dataSource.filter).toBe('aed');
+    fixture.detectChanges();
+    let row = (fixture.nativeElement.querySelectorAll('table tr'))
+    expect(row.length).toBe(1);
+  });
 
   it('should sort the dataSource', () => {
-    let buttons = fixture.nativeElement.querySelectorAll('thead tr [role="button"]');
+    let buttons = fixture.nativeElement.querySelectorAll(
+      'thead tr [role="button"]'
+    );
     expect(buttons.length).toBe(2);
     let sort = component.dataSource.sort;
     let buttonClick: HTMLButtonElement = buttons[0];
     buttonClick.click();
     buttonClick.click();
     fixture.detectChanges();
-    expect(sort?.direction).toEqual("desc");
+    expect(sort?.direction).toEqual('desc');
   });
-
 });
