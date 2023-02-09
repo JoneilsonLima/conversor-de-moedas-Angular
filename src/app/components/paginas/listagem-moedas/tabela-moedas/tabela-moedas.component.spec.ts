@@ -13,7 +13,7 @@ import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 import { of } from 'rxjs';
 
-fdescribe('TabelaMoedasComponent', () => {
+describe('TabelaMoedasComponent', () => {
   let component: TabelaMoedasComponent;
   let fixture: ComponentFixture<TabelaMoedasComponent>;
   let service: MoedasService;

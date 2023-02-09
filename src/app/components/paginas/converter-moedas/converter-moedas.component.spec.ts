@@ -10,6 +10,7 @@ import { MatFormFieldModule, MatFormFieldControl } from '@angular/material/form-
 import { MatInputModule } from '@angular/material/input';
 import { async } from 'rxjs';
 import { By } from '@angular/platform-browser';
+import { DebugElement } from '@angular/core';
 
 
 describe('ConverterMoedasComponent', () => {
@@ -47,6 +48,18 @@ describe('ConverterMoedasComponent', () => {
     expect(selects.length).toBe(2);
   });
 
+  it('must load value input', () => {
+    let input: DebugElement = fixture.debugElement.query(By.css('#input-value'))
+    expect(input).toBeTruthy()
+  });
+
+  it('must define the value to be converted', () => {
+    let input = fixture.nativeElement.querySelector('#input-value')
+    expect(input.value).toBe('');
+    input.value = '10';
+    expect(input.value).toBe('10');
+  });
+
   it(`must call function ${ConverterMoedasComponent.prototype.converterMoeda.name} when clicked`, () => {
     fixture.detectChanges()
     spyOn(component, 'converterMoeda')
@@ -54,5 +67,4 @@ describe('ConverterMoedasComponent', () => {
     el.click()
     expect(component.converterMoeda).toHaveBeenCalledTimes(1)
   })
-
 });
