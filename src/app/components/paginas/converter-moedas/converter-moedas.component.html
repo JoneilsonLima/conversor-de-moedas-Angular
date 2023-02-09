@@ -19,7 +19,7 @@
         <mat-form-field class="w-100">
           <mat-label>Moeda Origem *</mat-label>
           <mat-select [(value)]="moedaOrigem">
-            <mat-option *ngFor="let moeda of moedas" [value]="moeda.code">
+            <mat-option id="moeda-origem" *ngFor="let moeda of moedas" [value]="moeda.code">
               {{moeda.code}} - {{moeda.description}}
             </mat-option>
           </mat-select>
@@ -41,7 +41,7 @@
       <div class="col-md-4">
         <mat-form-field class="w-100">
           <mat-label>Valor</mat-label>
-          <input matInput [(ngModel)]="valor" type="text" required="required" name="numbers" pattern="[0-9]+$">
+          <input id="input-valor" matInput [(ngModel)]="valor" type="text" required="required" name="numbers" pattern="[0-9]+$">
         </mat-form-field>
       </div>
       <div class="col-md-4">

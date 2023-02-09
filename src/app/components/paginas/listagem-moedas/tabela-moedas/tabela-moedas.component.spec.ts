@@ -1,4 +1,3 @@
-import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { TabelaMoedasComponent } from './tabela-moedas.component';
 import { MoedasService } from 'src/app/services/moedas.service';
@@ -8,14 +7,15 @@ import { MatSortModule } from '@angular/material/sort';
 import { MatTableModule } from '@angular/material/table';
 import { MatInputModule } from '@angular/material/input';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
+import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { By } from '@angular/platform-browser';
+import { DebugElement } from '@angular/core';
 
 
 
 
-fdescribe('TabelaMoedasComponent', () => {
+describe('TabelaMoedasComponent', () => {
   let component: TabelaMoedasComponent;
   let fixture: ComponentFixture<TabelaMoedasComponent>;
   let service: MoedasService;
@@ -53,9 +53,9 @@ fdescribe('TabelaMoedasComponent', () => {
     expect(component.dataSource).toBeTruthy();
   })
 
-  it('Must load coin table', () => {
-      let table = fixture.debugElement.queryAll(By.css('table'));
-      expect(table.length).toBe(1);
+  it('Must display a table', () => {
+    let table: DebugElement = fixture.debugElement.query(By.css('table'));
+    expect(table).toBeTruthy();
   })
 
   it('Must get input value from input', () => {

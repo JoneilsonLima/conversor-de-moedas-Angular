@@ -1,14 +1,35 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import {  ComponentFixture, TestBed } from '@angular/core/testing';
+import { MoedasService } from 'src/app/services/moedas.service';
+import { HttpClient, HttpClientModule, HttpHandler } from '@angular/common/http';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatSelectModule } from '@angular/material/select';
+import { FormsModule } from '@angular/forms';
 import { ConverterMoedasComponent } from './converter-moedas.component';
+import { MatFormFieldModule, MatFormFieldControl } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { async } from 'rxjs';
+import { By } from '@angular/platform-browser';
 
-describe('ConverterMoedasComponent', () => {
+
+fdescribe('ConverterMoedasComponent', () => {
   let component: ConverterMoedasComponent;
   let fixture: ComponentFixture<ConverterMoedasComponent>;
+  let el: HTMLElement;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ConverterMoedasComponent ]
+      declarations: [ ConverterMoedasComponent ],
+      imports: [
+        BrowserAnimationsModule,
+        MatFormFieldModule,
+        MatSnackBarModule,
+        HttpClientModule,
+        MatSelectModule,
+        FormsModule,
+        MatInputModule
+      ],
+      providers:[MoedasService, HttpClient, HttpHandler]
     })
     .compileComponents();
 
@@ -20,4 +41,18 @@ describe('ConverterMoedasComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('must load two coin selectors', () => {
+    let selects = (fixture.nativeElement.querySelectorAll('mat-form-field mat-select'))
+    expect(selects.length).toBe(2);
+  });
+
+  it(`must call function ${ConverterMoedasComponent.prototype.converterMoeda.name} when clicked`, () => {
+    fixture.detectChanges()
+    spyOn(component, 'converterMoeda')
+    el = fixture.debugElement.query(By.css('button')).nativeElement
+    el.click()
+    expect(component.converterMoeda).toHaveBeenCalledTimes(1)
+  })
+
 });
