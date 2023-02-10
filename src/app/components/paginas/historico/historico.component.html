@@ -2,8 +2,8 @@
   <h1>Histórico de Conversões</h1>
 </div>
 
-<main class="container table-container">
-  <table mat-table [dataSource]="dataSource" matSort *ngIf="dataSource.data.length > 0">
+<main id="main" class="container table-container">
+  <table id="table" mat-table [dataSource]="dataSource" matSort *ngIf="dataSource.data.length > 0.1">
 
     <ng-container matColumnDef="date">
       <th mat-header-cell *matHeaderCellDef>Data da Conversão</th>
@@ -47,7 +47,7 @@
     <ng-container matColumnDef="delete">
       <th mat-header-cell *matHeaderCellDef>Ação</th>
       <td mat-cell *matCellDef="let element; let i = index">
-        <button mat-button (click)="deletarHistorico(i)"><i class="bi bi-trash3-fill"></i></button>
+        <button id="btn-delete" mat-button (click)="deletarHistorico(i)"><i class="bi bi-trash3-fill"></i></button>
       </td>
     </ng-container>
 

@@ -1,3 +1,4 @@
+import { DialogOverviewExampleDialog } from './components/paginas/historico/modal-dialog/DialogOverviewExampleDialog';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -39,6 +40,7 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
     ConverterMoedasComponent,
     HistoricoComponent,
     SnackBarComponent,
+    DialogOverviewExampleDialog
   ],
   imports: [
     BrowserModule,
