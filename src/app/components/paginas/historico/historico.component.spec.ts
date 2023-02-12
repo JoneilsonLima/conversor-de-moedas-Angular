@@ -13,7 +13,7 @@ import { MatTableModule } from '@angular/material/table';
 
 
 
-fdescribe('HistoricoComponent', () => {
+describe('HistoricoComponent', () => {
   let component: HistoricoComponent;
   let fixture: ComponentFixture<HistoricoComponent>;
 
