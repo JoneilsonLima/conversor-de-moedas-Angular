@@ -60,6 +60,15 @@ describe('ConverterMoedasComponent', () => {
     expect(input.value).toBe('10');
   });
 
+  it('Must disable converter button when value is less than 0', () => {
+    component.moedaOrigem = 'USA';
+    component.moedaDestino = 'EUR';
+    component.valor = 0;
+    fixture.detectChanges();
+    let button = fixture.debugElement.query(By.css('#botao'));
+    expect(button.nativeElement.disabled).toBeTruthy();
+  });
+
   it(`must call function ${ConverterMoedasComponent.prototype.converterMoeda.name} when clicked`, () => {
     fixture.detectChanges()
     spyOn(component, 'converterMoeda')

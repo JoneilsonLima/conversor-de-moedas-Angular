@@ -63,7 +63,7 @@
 
     <div class="row justify-content-center">
       <div class="col-md-4">
-        <button mat-raised-button id="botao" class="w-100 btn btn-lg btn-block" (click)="converterMoeda()">Calcular Conversão</button>
+        <button [disabled]="valor <= 0" mat-raised-button id="botao" class="w-100 btn btn-lg btn-block" (click)="converterMoeda()">Calcular Conversão</button>
       </div>
     </div>
   </div>
