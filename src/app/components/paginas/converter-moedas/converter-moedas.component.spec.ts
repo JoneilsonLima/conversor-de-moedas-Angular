@@ -69,6 +69,15 @@ describe('ConverterMoedasComponent', () => {
     expect(button.nativeElement.disabled).toBeTruthy();
   });
 
+  it('should display a warning if the value is less than or equal to 0', () => {
+    component.moedaOrigem = 'USA';
+    component.moedaDestino = 'EUR';
+    component.valor = -1;
+    fixture.detectChanges();
+    let el = fixture.debugElement.query(By.css('#erro')).nativeElement
+    expect(el.classList.contains('aviso')).toEqual(true)
+  });
+
   it(`must call function ${ConverterMoedasComponent.prototype.converterMoeda.name} when clicked`, () => {
     fixture.detectChanges()
     spyOn(component, 'converterMoeda')
