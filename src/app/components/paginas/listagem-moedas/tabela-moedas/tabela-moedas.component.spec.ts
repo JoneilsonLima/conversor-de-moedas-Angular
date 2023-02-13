@@ -75,6 +75,11 @@ describe('TabelaMoedasComponent', () => {
     expect(table).toBeTruthy();
   });
 
+  it('must contain an input field', () => {
+    let table: DebugElement = fixture.debugElement.query(By.css('input'));
+    expect(table).toBeTruthy();
+  });
+
   it('Must get input value from input', () => {
     let input: HTMLInputElement = fixture.nativeElement.querySelector('input');
     expect(input.value).toBe('');
