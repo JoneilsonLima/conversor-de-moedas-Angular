@@ -21,7 +21,7 @@ Conversor de moedas que consome API desenvolvido com Angular.
   ![historico](https://user-images.githubusercontent.com/73480168/216466628-adfb70ba-3101-4f75-be9d-5876fca37aab.png)
 <br>
 ### -Testes realizado na aplicação-
-![Testes app](https://user-images.githubusercontent.com/73480168/218490936-4b842edc-1c77-4e37-984f-d20761e93295.png)
+![teste app](https://user-images.githubusercontent.com/73480168/218595331-eac2c60c-a4de-4fa4-bc2d-1d9d60b5b496.png)
 <br>
 
 # Tecnologias:🧑‍💻
