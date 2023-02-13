@@ -1,14 +1,8 @@
 import { IHistorico } from './../../../interface/IHistorico';
-import { async } from 'rxjs';
 import { MatDialogModule } from '@angular/material/dialog';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { HistoricoComponent } from './historico.component';
-import { DebugElement } from '@angular/core';
-import { By } from '@angular/platform-browser';
-
 import { MatFormFieldModule, MatFormFieldControl } from '@angular/material/form-field';
-import { DataSource } from '@angular/cdk/collections';
-
 import { MatTableModule } from '@angular/material/table';
 
 
@@ -84,5 +78,19 @@ describe('HistoricoComponent', () => {
 
     dialogOpen = document.querySelectorAll('app-confirm-dialog h1')[0];
     expect(dialogOpen.innerHTML).toEqual('Excluir Histórico')
+  });
+
+  it ('must delete history with value passed as argument', () => {
+    spyOn(component, 'deletarHistorico').and.callThrough();
+    component.deletarHistorico(1);
+    expect(component.deletarHistorico).toHaveBeenCalled();
+    expect(component.deletarHistorico).toHaveBeenCalledWith(1);
+  });
+
+  it('It should show a message when the history is empty', () => {
+    component.dataSource.data = [];
+    fixture.detectChanges();
+    let historicoVazio: HTMLElement = fixture.nativeElement.querySelector('.historico-vazio');
+    expect(historicoVazio.textContent).toContain('Histórico de conversões está vazio.');
   });
 });

@@ -17,7 +17,6 @@ describe('TabelaMoedasComponent', () => {
   let component: TabelaMoedasComponent;
   let fixture: ComponentFixture<TabelaMoedasComponent>;
   let service: MoedasService;
-  let moeda: MoedasService;
   let symbolMock: any;
   let symbols = {
     "AED": { "description": 'United Arab Emirates Dirham', code: 'AED' },
@@ -108,5 +107,45 @@ describe('TabelaMoedasComponent', () => {
     buttonClick.click();
     fixture.detectChanges();
     expect(sort?.direction).toEqual('desc');
+  });
+
+  it('must allow pagination', () => {
+    let historico = {
+      code: 'AED',
+      description: 'United Arab Emirates Dirham'
+    }
+    let historico2 = {
+      code: 'AFN',
+      description: 'Afghan Afghani'
+    }
+    let historico3 = {
+      code: 'ALL',
+      description: 'Albanian Lek'
+    }
+    let historico4 = {
+      code: 'AMD',
+      description: 'Armenian Dram'
+    }
+    let historico5 = {
+      code: 'ANG',
+      description: 'Netherlands Antillean Guilder'
+    }
+    let historico6 = {
+      code: 'AOA',
+      description: 'Angolan Kwanza'
+    }
+    component.dataSource.data.push(historico)
+    component.dataSource.data.push(historico2)
+    component.dataSource.data.push(historico3)
+    component.dataSource.data.push(historico4)
+    component.dataSource.data.push(historico5)
+    component.dataSource.data.push(historico6)
+    fixture.detectChanges();
+    let paginator: MatPaginator = component.paginator
+    expect(paginator.pageIndex).toBe(0)
+    paginator.nextPage()
+    expect(paginator.pageIndex).toBe(1)
+    paginator.previousPage()
+    expect(paginator.pageIndex).toBe(0)
   });
 });
