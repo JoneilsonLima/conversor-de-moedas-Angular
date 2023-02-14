@@ -1,5 +1,3 @@
-# Veja o projeto <a href="https://heartfelt-croquembouche-726309.netlify.app" target="_blank">clicando aqui!</a>
-
 ## Conversor de Moedas
 
 Conversor de moedas que consome API desenvolvido com Angular.
