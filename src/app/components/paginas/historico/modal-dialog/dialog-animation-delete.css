@@ -1,5 +1,5 @@
 .card {
-  width: 500px;
+  max-width: 500px;
   border-radius: 9px;
 }
 
@@ -7,7 +7,8 @@
   font-weight: 500;
 }
 
-#btn {
+#btn,
+#excluir-historico {
   padding: .5em 2.6em;
 }
 
