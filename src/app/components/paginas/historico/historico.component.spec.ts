@@ -10,7 +10,16 @@ import { MatTableModule } from '@angular/material/table';
 describe('HistoricoComponent', () => {
   let component: HistoricoComponent;
   let fixture: ComponentFixture<HistoricoComponent>;
-
+  let mockHistorico: IHistorico = {
+    date: "10/02/2023",
+    time: "17:09:19",
+    inputValue: 231,
+    inputCurrency: "ARS",
+    outputValue: 2.189812,
+    outputCurrency: "AWG",
+    rate: [0.00948],
+    dolarValue: false
+  }
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [ HistoricoComponent ],
@@ -37,17 +46,7 @@ describe('HistoricoComponent', () => {
   });
 
   it(`must call the method ${HistoricoComponent.prototype.deletarHistorico.name} when clicked`, () => {
-    let historico: IHistorico = {
-      date: "10/02/2023",
-      time: "17:09:19",
-      inputValue: 231,
-      inputCurrency: "ARS",
-      outputValue: 2.189812,
-      outputCurrency: "AWG",
-      rate: [0.00948],
-      dolarValue: false
-    }
-    component.dataSource.data.push(historico)
+    component.dataSource.data.push(mockHistorico)
     fixture.detectChanges()
     spyOn(component, 'deletarHistorico')
     let button: HTMLElement = fixture.nativeElement.querySelector('#btn-delete')
@@ -56,17 +55,7 @@ describe('HistoricoComponent', () => {
   });
 
   it('should open the modal by clicking on the trash can icon', () => {
-    let historico: IHistorico = {
-      date: "10/02/2023",
-      time: "17:09:19",
-      inputValue: 231,
-      inputCurrency: "ARS",
-      outputValue: 2.189812,
-      outputCurrency: "AWG",
-      rate: [0.00948],
-      dolarValue: false
-    }
-    component.dataSource.data.push(historico)
+    component.dataSource.data.push(mockHistorico)
     fixture.detectChanges()
 
     let dialogOpen = document.querySelectorAll('app-confirm-dialog h1')[0];
