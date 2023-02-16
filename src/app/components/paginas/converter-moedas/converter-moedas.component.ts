@@ -23,7 +23,7 @@ export class ConverterMoedasComponent implements OnInit {
   conversions: IHistorico[] = [];
   date!: string;
   time!: string;
-  maiorValorEmDolar!: boolean;
+  maiorValorEmDolar!: number;
 
   local: any = localStorage.getItem('historico');
 

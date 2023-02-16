@@ -6,7 +6,6 @@ import { MatFormFieldModule, MatFormFieldControl } from '@angular/material/form-
 import { MatTableModule } from '@angular/material/table';
 
 
-
 describe('HistoricoComponent', () => {
   let component: HistoricoComponent;
   let fixture: ComponentFixture<HistoricoComponent>;
@@ -18,7 +17,17 @@ describe('HistoricoComponent', () => {
     outputValue: 2.189812,
     outputCurrency: "AWG",
     rate: [0.00948],
-    dolarValue: false
+    dolarValue: 232
+  }
+  let mockMaiorValorIcone = {
+    date: "10/02/2023",
+    time: "17:09:19",
+    inputValue: 12000,
+    inputCurrency: "USD",
+    outputValue: 11201.060376,
+    outputCurrency: "EUR",
+    rate: [0.933422],
+    dolarValue: 12000
   }
   beforeEach(async () => {
     await TestBed.configureTestingModule({
@@ -82,4 +91,18 @@ describe('HistoricoComponent', () => {
     let historicoVazio: HTMLElement = fixture.nativeElement.querySelector('.historico-vazio');
     expect(historicoVazio.textContent).toContain('Histórico de conversões está vazio.');
   });
+
+  it('It should display an icon indicating that the value is greater than 10 thousand dollars', ()=> {
+    component.dataSource.data.push(mockMaiorValorIcone)
+    fixture.detectChanges()
+    let iconeValor: HTMLElement = fixture.nativeElement.querySelector('#maior-valor');
+    expect(iconeValor).toBeTruthy()
+  })
+
+  it('Must not display an icon if the amount is less than 10 thousand dollars', ()=> {
+    component.dataSource.data.push(mockHistorico)
+    fixture.detectChanges()
+    let iconeValor: HTMLElement = fixture.nativeElement.querySelector('#maior-valor');
+    expect(iconeValor).toBeFalsy()
+  })
 });

@@ -6,5 +6,5 @@ export interface IHistorico {
   outputValue: number,
   outputCurrency: string,
   rate: number[],
-  dolarValue: boolean
+  dolarValue: number
 }
