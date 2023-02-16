@@ -15,6 +15,7 @@ Conversor de moedas que consome API desenvolvido com Angular.
 ![pagina-converter-moedas](https://user-images.githubusercontent.com/73480168/215382480-71ca5e7a-724e-4fe7-a12a-041abb2b6a90.png)
 <br>
 ### -Página de Histórico de Conversões-
+ Seu histórico de conversão de moeda fica salvo no localStorage do seu navegador.
   ![historico-vazio](https://user-images.githubusercontent.com/73480168/216466618-c2be7c26-145a-46f6-9e19-dabd291eba6e.png)
   ![historico](https://user-images.githubusercontent.com/73480168/216466628-adfb70ba-3101-4f75-be9d-5876fca37aab.png)
 <br>
