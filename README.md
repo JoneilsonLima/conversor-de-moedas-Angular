@@ -25,8 +25,8 @@ Conversor de moedas que consome API desenvolvido com Angular.
 
 # Tecnologias:🧑‍💻
 
--Angular
+- Angular
 
--TypeScript
+- TypeScript
 
--Bootstrap
+- Bootstrap
