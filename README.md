@@ -1,5 +1,11 @@
 ## Conversor de Moedas
 
+# Tecnologias:🧑‍💻
+- Angular
+- TypeScript
+- Bootstrap
+- Angular Material
+
 Conversor de moedas que consome API desenvolvido com Angular.
 
 -Veja a API utilizada no projeto <a href="https://exchangerate.host/#/" target="_blank">clicando aqui!</a>
@@ -23,10 +29,4 @@ Conversor de moedas que consome API desenvolvido com Angular.
 ![teste app](https://user-images.githubusercontent.com/73480168/218595331-eac2c60c-a4de-4fa4-bc2d-1d9d60b5b496.png)
 <br>
 
-# Tecnologias:🧑‍💻
 
-- Angular
-
-- TypeScript
-
-- Bootstrap
